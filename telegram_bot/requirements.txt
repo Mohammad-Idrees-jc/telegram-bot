@@ -1,0 +1,5 @@
+aiogram
+yt-dlp
+openai-whisper
+deep-translator
+ffmpeg-python
