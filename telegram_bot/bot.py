@@ -13,7 +13,14 @@ from audio_utils import extract_audio
 from subtitle_utils import transcribe_audio, translate_and_save
 
 # ====== Replace with your bot token ======
+from dotenv import load_dotenv
+
+# Load .env when running locally (optional). Render will inject env vars automatically.
+load_dotenv()
+
 TOKEN = os.getenv("TOKEN")
+if not TOKEN:
+    raise RuntimeError("Missing TOKEN environment variable. Set TOKEN in Render dashboard.")
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
@@ -212,3 +219,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
